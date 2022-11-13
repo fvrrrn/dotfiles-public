@@ -1,4 +1,5 @@
 require("fvrn.options")
+require("fvrn.maps")
 
 local has = vim.fn.has
 local is_mac = has "macunix"
