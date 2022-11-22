@@ -1,3 +1,6 @@
+vim.opt.termguicolors = true
+
+vim.opt.number = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
@@ -19,3 +22,5 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+
+vim.cmd[[colorscheme darkplus]]
