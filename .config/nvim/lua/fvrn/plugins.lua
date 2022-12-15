@@ -53,7 +53,7 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
-	use("martinsione/darkplus.nvim") --vscode theme
+	use("lunarvim/darkplus.nvim") -- vscode-like theme
 	use("akinsho/bufferline.nvim") -- buffers, tabs UI
 	use("moll/vim-bbye") -- better and intuitive buffer-closing behavior
 	use("kyazdani42/nvim-web-devicons") -- File icons
@@ -80,8 +80,17 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- community-driven snippets
 
 	-- Typing Enhancement
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
+	use("windwp/nvim-autopairs") -- closes pairs of anything: brackets, braces etc.
+	use("windwp/nvim-ts-autotag") -- autorename tag
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	}) -- move to word with one key stroke
+	use("olambo/vi-viz") -- expand region
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -102,6 +111,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+	--
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

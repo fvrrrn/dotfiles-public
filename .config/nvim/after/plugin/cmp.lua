@@ -3,6 +3,11 @@ if not cmp_status then
 	return
 end
 
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
+	return
+end
+
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
 	return
@@ -27,7 +32,9 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
 		{ name = "buffer" },
 	}),
+	formatting = {
+		format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }),
+	},
 })
